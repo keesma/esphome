@@ -4,6 +4,7 @@ from esphome.components import sensor, esp32_ble_tracker
 from esphome.const import (
     CONF_BATTERY_LEVEL,
     CONF_BATTERY_VOLTAGE,
+    CONF_NAME,
     CONF_MAC_ADDRESS,
     CONF_HUMIDITY,
     CONF_TEMPERATURE,
@@ -31,6 +32,7 @@ CONFIG_SCHEMA = (
     cv.Schema(
         {
             cv.GenerateID(): cv.declare_id(ATCMiThermometer),
+            cv.Optional(CONF_NAME): cv.name,
             cv.Required(CONF_MAC_ADDRESS): cv.mac_address,
             cv.Optional(CONF_TEMPERATURE): sensor.sensor_schema(
                 UNIT_CELSIUS, ICON_EMPTY, 1, DEVICE_CLASS_TEMPERATURE
